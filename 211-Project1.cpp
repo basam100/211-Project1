@@ -7,6 +7,24 @@ using namespace std;
 
 string calculateLetterGrade(double avg) {
 
+    if (avg > 90) {
+        return "A";
+    }
+    else if(avg > 80) {
+        return "B";
+
+    }
+    else if (avg > 75) {
+        return "C+";
+    }
+    else if (avg > 70) {
+        return "C";
+    }
+    else if (avg > 60) {
+        return "D";
+    }
+    return "F";
+
 }
 double findMinQuiz(double q1, double q2, double q3, double q4) {
 
@@ -26,7 +44,7 @@ int main()
 {
     string response;
     ifstream data;
-    ofstream results;
+    ofstream results1, results2;
     string name;
     double attendance, group, quiz, homework, final;
     do {
