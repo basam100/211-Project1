@@ -36,12 +36,38 @@ double findAverageQuizScore(double q1, double q2, double q3, double q4) {
 
 
 }
-double findAverageHomeworkScore(double q1, double q2, double q3, double q4) {
+double findAverageHomeworkScore(double hw1, double hw2, double hw3, double hw4) {
+    double hw1Percent = (hw1 / 10.0) * 100.0; 
+    double hw2Percent = (hw2 / 10.0) * 100.0;  
+    double hw3Percent = (hw3 / 20.0) * 100.0;  
+    double hw4Percent = (hw4 / 20.0) * 100.0; 
 
+   
+    double averagePercent = (hw1Percent + hw2Percent + hw3Percent + hw4Percent) / 4.0;
+
+    return averagePercent / 10.0;
 }
 double findAverageLabScore(double q1, double q2, double q3, double q4, double q5, double q6, double q7, double q8) {
+    return (q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8) / 8;
 
 }
+
+struct Student {
+    string firstName;
+    string lastName;
+    double attendance;
+    double groupWork;
+    double quizzes[4];
+    double labs[8];
+    double homework[4];
+    double midterm;
+    double finalExam;
+    double avgQuizzes;
+    double avgLabs;
+    double avgHomework;
+    double courseAverage;
+    string letterGrade;
+};
 
 
 int main()
