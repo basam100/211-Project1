@@ -27,6 +27,8 @@ string calculateLetterGrade(double avg) {
 
 }
 double findMinQuiz(double q1, double q2, double q3, double q4) {
+    return (q1 < q2 ? (q1 < q3 ? (q1 < q4 ? q1 : q4) : (q3 < q4 ? q3 : q4)) : (q2 < q3 ? (q2 < q4 ? q2 : q4) : (q3 < q4 ? q3 : q4)));
+
 
 }
 void findAverageQuizScore(double q1, double q2, double q3, double q4) {
