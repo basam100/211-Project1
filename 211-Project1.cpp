@@ -31,7 +31,9 @@ double findMinQuiz(double q1, double q2, double q3, double q4) {
 
 
 }
-void findAverageQuizScore(double q1, double q2, double q3, double q4) {
+double findAverageQuizScore(double q1, double q2, double q3, double q4) {
+    return (q1 + q2 + q3 + q4 - findMinQuiz(q1, q2, q3, q4)) / 3;
+
 
 }
 double findAverageHomeworkScore(double q1, double q2, double q3, double q4) {
