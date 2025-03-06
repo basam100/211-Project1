@@ -4,6 +4,22 @@
 #include <iomanip>
 #include <string>
 using namespace std;
+struct Student {
+    string firstName;
+    string lastName;
+    double attendance;
+    double groupWork;
+    double quizzes[4];
+    double labs[8];
+    double homework[4];
+    double midterm;
+    double finalExam;
+    double avgQuizzes;
+    double avgLabs;
+    double avgHomework;
+    double courseAverage;
+    string letterGrade;
+};
 
 string calculateLetterGrade(double avg) {
 
@@ -26,48 +42,34 @@ string calculateLetterGrade(double avg) {
     return "F";
 
 }
-double findMinQuiz(double q1, double q2, double q3, double q4) {
-    return (q1 < q2 ? (q1 < q3 ? (q1 < q4 ? q1 : q4) : (q3 < q4 ? q3 : q4)) : (q2 < q3 ? (q2 < q4 ? q2 : q4) : (q3 < q4 ? q3 : q4)));
+double findMinQuiz(double q[]) {
+    return (q[0] < q[1] ? (q[0] < q[2] ? (q[0] < q[3] ? q[0] : q[3]) : (q[2] < q[3] ? q[2] : q[3])) : (q[1] < q[2] ? (q[1] < q[3] ? q[1] : q[3]) : (q[2] < q[3] ? q[2] : q[3])));
 
 
 }
-double findAverageQuizScore(double q1, double q2, double q3, double q4) {
-    return (q1 + q2 + q3 + q4 - findMinQuiz(q1, q2, q3, q4)) / 3;
+double findAverageQuizScore(double q[]) {
+    return (q[0] + q[1] + q[2] + q[3] - findMinQuiz(q[0], q[1], q[2], q[3])) / 3;
 
 
 }
-double findAverageHomeworkScore(double hw1, double hw2, double hw3, double hw4) {
-    double hw1Percent = (hw1 / 10.0) * 100.0; 
-    double hw2Percent = (hw2 / 10.0) * 100.0;  
-    double hw3Percent = (hw3 / 20.0) * 100.0;  
-    double hw4Percent = (hw4 / 20.0) * 100.0; 
+double findAverageHomeworkScore(double hw[]) {
+    double hw1Percent = (hw[0] / 10.0) * 100.0; 
+    double hw2Percent = (hw[1] / 10.0) * 100.0;  
+    double hw3Percent = (hw[2] / 20.0) * 100.0;  
+    double hw4Percent = (hw[3] / 20.0) * 100.0; 
 
    
     double averagePercent = (hw1Percent + hw2Percent + hw3Percent + hw4Percent) / 4.0;
 
     return averagePercent / 10.0;
 }
-double findAverageLabScore(double q1, double q2, double q3, double q4, double q5, double q6, double q7, double q8) {
-    return (q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8) / 8;
+double findAverageLabScore(double arr[]) {
+
+    return (arr[0] + arr[1] + arr[2] + arr[3] + arr[4] + arr[5] + arr[6] + arr[7]) / 8;
 
 }
 
-struct Student {
-    string firstName;
-    string lastName;
-    double attendance;
-    double groupWork;
-    double quizzes[4];
-    double labs[8];
-    double homework[4];
-    double midterm;
-    double finalExam;
-    double avgQuizzes;
-    double avgLabs;
-    double avgHomework;
-    double courseAverage;
-    string letterGrade;
-};
+
 
 
 int main()
