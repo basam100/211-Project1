@@ -3,15 +3,16 @@
 #include <fstream>
 #include <iomanip>
 #include <string>
+#include <vector>
 using namespace std;
 struct Student {
     string firstName;
     string lastName;
     double attendance;
     double groupWork;
-    double quizzes[4];
-    double labs[8];
-    double homework[4];
+    vector<double> quizzes;
+    vector <double> labs;
+    vector <double> homework;
     double midterm;
     double finalExam;
     double avgQuizzes;
@@ -19,6 +20,34 @@ struct Student {
     double avgHomework;
     double courseAverage;
     string letterGrade;
+
+
+    void load(ifstream data) {
+        int ans;
+        data >> firstName;
+        data >> lastName;
+        data >> attendancel;
+        data >> groupWork;
+
+        cout << "How many quiz grades?: ";
+        cin >> ans;
+        for (int i = 0; i < ans; i++) {
+            data >> quizzes[i];
+        }
+        cout << endl << "How many lab grades?: "
+            cin >> ans;
+        for (int i = 0; i < ans; i++) {
+            data >> labs [i] ;
+        }
+        cout << endl << "How many homework grades?: "
+            cin >> ans;
+        for (int i = 0; i < ans; i++) {
+            data >> labs[i];
+        }
+
+        
+    }
+   
 };
 
 string calculateLetterGrade(double avg) {
@@ -72,6 +101,7 @@ double findAverageLabScore(double arr[]) {
 
 
 
+
 int main()
 {
     string response;
@@ -84,7 +114,7 @@ int main()
         cout << "Hello welcome to my calc: Enter file name (case sensitive)";
         cin >> response;
         data.open(response+".txt");
-    } while (data);
+    } while (data); 
   
 }
 
